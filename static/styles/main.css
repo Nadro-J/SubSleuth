@@ -1,0 +1,215 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #e6007a;
+}
+
+footer {
+    margin-top: auto;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    flex: 2;
+    max-width: fit-content;         /* or adjust as needed */
+    padding-right: 10px;            /* or adjust as needed */
+
+    /* Sticky positioning */
+    position: sticky;
+    top: 20px;                      /* Adjust this value based on desired distance from the top */
+}
+
+.graph-container {
+    flex: 2;
+    max-height: fit-content;
+    max-width: fit-content;         /* or adjust as needed */
+}
+
+.container {
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+pre {
+    text-align: left;
+}
+
+#address-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.address-field,  /* Targeting the address text field */
+#address-form select {  /* Targeting the select dropdown */
+    padding: 6px 8px;  /* Reduced vertical padding from 10px to 8px */
+    border-radius: 2px;
+    border: 2px solid #ccc;
+    margin-right: 10px;
+    font-size: 16px;        /* Consistent font size */
+
+    vertical-align: middle; /* Vertical alignment */
+    width: auto;             /* Take up full width of their container */
+    box-sizing: border-box; /* Include padding and border in total width/height */
+    transition: background-color 0.3s, color 0.3s;  /* Smooth transition for theme change */
+}
+
+/* Polkadot theme */
+[data-theme="polkadot"] .address-field,
+[data-theme="polkadot"] #address-form select {
+    background-color: #E6007A;
+    color: #fff;
+    border-color: #E6007A;
+}
+
+[data-theme="polkadot"] .form-control {
+    border-color: #E6007A;
+    background-color: #fff;
+    color: #E6007A;
+}
+
+/* Kusama theme */
+[data-theme="kusama"] .address-field,
+[data-theme="kusama"] #address-form select {
+    background-color: #000;
+    color: #fff;
+    border-color: #ffffff;
+}
+[data-theme="kusama"] .form-control {
+    border-color: #ffffff;
+    background-color: #000;
+    color: #FF66FF;
+}
+
+[data-theme="kusama"] .btn.btn-primary {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #000;
+}
+
+.form-group {
+    margin-right: 10px;
+}
+
+.form-group label {
+    position: static;
+    top: 5px;
+    left: 5px;
+    background-color: #1c1c1c;
+    padding: 0 4px;
+    font-size: 12px;
+}
+
+.form-control {
+    background-color: #1c1c1c;
+    border-color: #e6007a;
+    color: #e6007a;
+
+    max-width: 100px;
+    min-width: 400px;
+}
+
+.form-control:focus {
+    border-color: #ff70b8;
+    box-shadow: 0 0 0 0.25rem rgba(255, 112, 184, 0.5);
+}
+
+.btn-primary {
+    background-color: #e6007a;
+    border-color: #e6007a;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #ff70b8;
+    border-color: #ff70b8;
+}
+
+#sankey-plot {
+    align-items: flex-start;
+    display: flex;
+    max-width: fit-content;
+    height: 100%;  /* adjust this value according to your needs */
+}
+
+#hovered-address {
+    position: absolute;
+    text-decoration: none;
+    color: white;  /* Set the text color to white */
+    font-weight: bold;  /* Make the text bold */
+    width: 200px;
+    height: auto;
+    top: 100%;  /* This will place it right below the form */
+    left: 0;
+    margin-top: 10px;
+}
+
+#hovered-address #sub-text {
+    font-size: 0.6em;  /* Adjust as needed */
+    color: white;  /* Make sure the subtext is also white */
+    font-weight: normal;  /* This removes the bold styling */
+}
+
+#spinner {
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Base Polkadot theme */
+[data-theme="polkadot"] {
+    color: #E6007A; /* Primary text color */
+}
+
+[data-theme="polkadot"] a,
+[data-theme="polkadot"] a:hover {
+    color: #E6007A; /* Primary text color */
+}
+
+/* Additional elements can be themed specifically for Polkadot, such as buttons, headers, etc. */
+
+/* Base Kusama theme */
+[data-theme="kusama"] {
+    color: #fff; /* Adjust link colors for visibility */
+}
+
+[data-theme="kusama"] a,
+[data-theme="kusama"] a:hover {
+    color: #fff; /* Adjust link colors for visibility */
+}
+
+/* Additional elements can be themed specifically for Kusama, such as buttons, headers, etc. */
+
+
+.hoverlayer .hovertext {
+    /* pointer-events: none;   Ensures the tooltip doesn't interfere with other mouse events */
+    /*  z-index: 1000;         Ensures the tooltip appears above other elements */
+}

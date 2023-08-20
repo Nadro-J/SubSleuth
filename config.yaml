@@ -1,0 +1,8 @@
+polkadot:
+    graphql: <subsquid-graphql-endpoint>
+    rpc: wss://rpc.polkadot.io
+    e_notation: 1e10
+kusama:
+    graphql: <subsquid-graphql-endpoint>
+    rpc: wss://kusama-rpc.polkadot.io
+    e_notation: 1e12
