@@ -1,0 +1,6 @@
+Flask==2.2.3
+pandas==2.0.0
+plotly==5.14.1
+PyYAML==6.0.1
+Requests==2.31.0
+substrate_interface==1.4.2
