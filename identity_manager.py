@@ -106,15 +106,23 @@ class IdentityManager:
             else:
                 return 'N/A'
 
-        display = result['info']['display']
-        twitter = result['info']['twitter']
+        display, twitter = None, None
 
-        if 'Raw' in twitter:
-            if len(twitter['Raw']) > 0:
-                return twitter['Raw']
+        if isinstance(result, dict):
+            display = result['info']['display']
+            twitter = result['info']['twitter']
+        elif isinstance(result, list):
+            display = result[0]['info']['display']
+            twitter = result[0]['info']['twitter']
 
-        if 'Raw' in display:
-            if len(display['Raw']) > 0:
-                return display['Raw']
+        display_name = display.get('Raw', '')  # Get the 'Raw' value from display, default to empty string if not present
+        twitter_name = twitter.get('Raw', '')  # Get the 'Raw' value from twitter, default to empty string if not present
 
-        return 'N/A'
+        if display_name and twitter_name:
+            return f"{display_name} / {twitter_name}"
+        elif display_name:
+            return display_name
+        elif twitter_name:
+            return twitter_name
+        else:
+            return address
